@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>云裳心经手法小助手</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script src="scripts.js"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</head>
+<body>
+<!-- title类 -->
+<h1 class="title-container">
+    <span class="title">云裳心经手法小助手</span>
+</h1>
+<!-- 填写区域，填写加速等级（整数）与战斗时长（秒），并生成结果 -->
+<form>
+    <fieldset>
+        <legend>基本信息填写</legend>
+        <p>
+            <label for="level">加速等级：</label>
+            <input type="number" id="level" name="level" required min="0" />
+        </p>
+        <p>
+            <label for="time">战斗时长（秒）：</label>
+            <input type="number" id="time" name="time" required min="0" />
+        </p>
+    </fieldset>
+    <!-- 添加类名 button-container -->
+    <p class="button-container">
+        <input type="submit" value="生成结果" id="generateResult" />
+    </p>
+</form>
+
+<!-- 添加结果容器 -->
+<div id="resultContainer"></div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
