@@ -11,5 +11,18 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^25.1.0"
+  },
+  "build": {
+    "appId": "com.cloudycal.app",
+    "productName": "CloudyCal",
+    "mac": {
+      "category": "public.app-category.education",
+      "icon": "icon.icns"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   }
 }

@@ -7,6 +7,85 @@ document.addEventListener("DOMContentLoaded", function () {
         zuoXuanYouZhuanData,
     } = require("./tableData");
 
+    //定义函数
+    function getGcdData(accelerationLevel) {
+        const result = gcdData.find((data) => data.level === accelerationLevel);
+        if (result) {
+            return result;
+        }
+        if (accelerationLevel < gcdData[0].level) {
+            return gcdData[0];
+        }
+        if (accelerationLevel > gcdData[gcdData.length - 1].level) {
+            return gcdData[gcdData.length - 1];
+        }
+        for (let i = 0; i < gcdData.length; i++) {
+            if (accelerationLevel < gcdData[i].level) {
+                return gcdData[i - 1];
+            }
+        }
+    }
+
+    function getHuiXueGuiZiData(accelerationLevel) {
+        const result = huiXueGuiZiData.find(
+            (data) => data.level === accelerationLevel
+        );
+        if (result) {
+            return result;
+        }
+        if (accelerationLevel < huiXueGuiZiData[0].level) {
+            return huiXueGuiZiData[0];
+        }
+        if (accelerationLevel > huiXueGuiZiData[huiXueGuiZiData.length - 1].level) {
+            return huiXueGuiZiData[huiXueGuiZiData.length - 1];
+        }
+        for (let i = 0; i < huiXueGuiZiData.length; i++) {
+            if (accelerationLevel < huiXueGuiZiData[i].level) {
+                return huiXueGuiZiData[i - 1];
+            }
+        }
+    }
+
+    function getHuiXueYuHanData(accelerationLevel) {
+        const result = huiXueYuHanData.find(
+            (data) => data.level === accelerationLevel
+        );
+        if (result) {
+            return result;
+        }
+        if (accelerationLevel < huiXueYuHanData[0].level) {
+            return huiXueYuHanData[0];
+        }
+        if (accelerationLevel > huiXueYuHanData[huiXueYuHanData.length - 1].level) {
+            return huiXueYuHanData[huiXueYuHanData.length - 1];
+        }
+        for (let i = 0; i < huiXueYuHanData.length; i++) {
+            if (accelerationLevel < huiXueYuHanData[i].level) {
+                return huiXueYuHanData[i - 1];
+            }
+        }
+    }
+
+    function getZuoXuanYouZhuanData(accelerationLevel) {
+        const result = zuoXuanYouZhuanData.find(
+            (data) => data.level === accelerationLevel
+        );
+        if (result) {
+            return result;
+        }
+        if (accelerationLevel < zuoXuanYouZhuanData[0].level) {
+            return zuoXuanYouZhuanData[0];
+        }
+        if (accelerationLevel > zuoXuanYouZhuanData[zuoXuanYouZhuanData.length - 1].level) {
+            return zuoXuanYouZhuanData[zuoXuanYouZhuanData.length - 1];
+        }
+        for (let i = 0; i < zuoXuanYouZhuanData.length; i++) {
+            if (accelerationLevel < zuoXuanYouZhuanData[i].level) {
+                return zuoXuanYouZhuanData[i - 1];
+            }
+        }
+    }
+
     // 获取表单元素
     const levelInput = document.getElementById("level");
     const timeInput = document.getElementById("time");
@@ -54,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function displayResults() {
+export function displayResults() {
     // 获取结果
     const resultData = JSON.parse(sessionStorage.getItem("resultData"));
 
