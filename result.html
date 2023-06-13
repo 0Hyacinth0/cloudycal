@@ -11,9 +11,9 @@
 <div id="results_container">
 </div>
 <button id="go_back_button" onclick="goBack()">返回</button>
-<script src="scripts.js"></script>
+<script src="scripts.js" type="module"></script>
 <script>
-  window.onload = displayResults;
+  document.addEventListener("DOMContentLoaded", displayResults);
 </script>
 </body>
 </html>
